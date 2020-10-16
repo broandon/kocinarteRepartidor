@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		9DE4A45B253A390200ED3CE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A45A253A390200ED3CE0 /* AppDelegate.swift */; };
-		9DE4A45D253A390200ED3CE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A45C253A390200ED3CE0 /* SceneDelegate.swift */; };
 		9DE4A45F253A390200ED3CE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A45E253A390200ED3CE0 /* ViewController.swift */; };
 		9DE4A462253A390200ED3CE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A460253A390200ED3CE0 /* Main.storyboard */; };
 		9DE4A464253A390500ED3CE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A463253A390500ED3CE0 /* Assets.xcassets */; };
 		9DE4A467253A390500ED3CE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A465253A390500ED3CE0 /* LaunchScreen.storyboard */; };
+		9DE4A472253A523D00ED3CE0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A471253A523D00ED3CE0 /* Extensions.swift */; };
+		9DE4A477253A568F00ED3CE0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A476253A568F00ED3CE0 /* loginViewController.swift */; };
+		9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9DE4A457253A390200ED3CE0 /* kocinarteRepartidor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kocinarteRepartidor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE4A45A253A390200ED3CE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9DE4A45C253A390200ED3CE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9DE4A45E253A390200ED3CE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9DE4A461253A390200ED3CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DE4A463253A390500ED3CE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DE4A466253A390500ED3CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DE4A468253A390500ED3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DE4A471253A523D00ED3CE0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9DE4A476253A568F00ED3CE0 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recoverAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		9DE4A44E253A390200ED3CE0 = {
 			isa = PBXGroup;
 			children = (
+				9DE4A475253A568100ED3CE0 /* Account */,
+				9DE4A470253A522900ED3CE0 /* Storyboards */,
 				9DE4A459253A390200ED3CE0 /* kocinarteRepartidor */,
 				9DE4A458253A390200ED3CE0 /* Products */,
 			);
@@ -57,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				9DE4A45A253A390200ED3CE0 /* AppDelegate.swift */,
-				9DE4A45C253A390200ED3CE0 /* SceneDelegate.swift */,
 				9DE4A45E253A390200ED3CE0 /* ViewController.swift */,
 				9DE4A460253A390200ED3CE0 /* Main.storyboard */,
 				9DE4A463253A390500ED3CE0 /* Assets.xcassets */,
@@ -65,6 +70,23 @@
 				9DE4A468253A390500ED3CE0 /* Info.plist */,
 			);
 			path = kocinarteRepartidor;
+			sourceTree = "<group>";
+		};
+		9DE4A470253A522900ED3CE0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9DE4A471253A523D00ED3CE0 /* Extensions.swift */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9DE4A475253A568100ED3CE0 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				9DE4A476253A568F00ED3CE0 /* loginViewController.swift */,
+				9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE4A477253A568F00ED3CE0 /* loginViewController.swift in Sources */,
 				9DE4A45F253A390200ED3CE0 /* ViewController.swift in Sources */,
+				9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */,
+				9DE4A472253A523D00ED3CE0 /* Extensions.swift in Sources */,
 				9DE4A45B253A390200ED3CE0 /* AppDelegate.swift in Sources */,
-				9DE4A45D253A390200ED3CE0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
