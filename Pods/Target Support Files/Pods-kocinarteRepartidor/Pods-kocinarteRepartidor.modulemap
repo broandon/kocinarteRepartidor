@@ -1,0 +1,6 @@
+framework module Pods_kocinarteRepartidor {
+  umbrella header "Pods-kocinarteRepartidor-umbrella.h"
+
+  export *
+  module * { export * }
+}

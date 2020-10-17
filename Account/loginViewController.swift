@@ -21,7 +21,7 @@ class loginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-
+    
     //MARK: Funcs
     
     func setupView() {
@@ -36,6 +36,9 @@ class loginViewController: UIViewController {
     }
     
     @IBAction func forgotPassword(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextVC = storyBoard.instantiateViewController(withIdentifier: "recoverAccountViewController") as! recoverAccountViewController
+        self.present(nextVC, animated: true, completion: nil)
     }
     
 }

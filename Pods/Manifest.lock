@@ -1,0 +1,32 @@
+PODS:
+  - IQKeyboardManager (6.5.5)
+  - NVActivityIndicatorView (4.8.0):
+    - NVActivityIndicatorView/Presenter (= 4.8.0)
+  - NVActivityIndicatorView/Presenter (4.8.0)
+  - SDWebImage (5.6.1):
+    - SDWebImage/Core (= 5.6.1)
+  - SDWebImage/Core (5.6.1)
+  - TableViewReloadAnimation (0.0.5)
+
+DEPENDENCIES:
+  - IQKeyboardManager
+  - NVActivityIndicatorView
+  - SDWebImage
+  - TableViewReloadAnimation
+
+SPEC REPOS:
+  trunk:
+    - IQKeyboardManager
+    - NVActivityIndicatorView
+    - SDWebImage
+    - TableViewReloadAnimation
+
+SPEC CHECKSUMS:
+  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
+  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
+  TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
+
+PODFILE CHECKSUM: b0b922cfa5555652bb5dcc0a81cc6c64086c3480
+
+COCOAPODS: 1.9.1
