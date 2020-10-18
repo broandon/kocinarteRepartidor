@@ -24,7 +24,9 @@ class settingsViewController: UIViewController {
     }
     
     @IBAction func myDeliveries(_ sender: Any) {
-        print("Not Working Yet")
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "myDeliveriesViewController") as! myDeliveriesViewController
+        present(newViewController, animated: true, completion: nil)
     }
     
     @IBAction func openPrivacyButton(_ sender: Any) {

@@ -85,7 +85,9 @@ class chatDetailViewController: UIViewController, NVActivityIndicatorViewable {
     //MARK: Buttons
     
     @IBAction func closeView(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            self.stopAnimating()
+        })
     }
     
     @IBAction func sendMessage(_ sender: Any) {

@@ -1,5 +1,5 @@
 //
-//  mainFeedViewController.swift
+//  myDeliveriesViewController.swift
 //  kocinarteRepartidor
 //
 //  Created by Brandon Gonzalez on 17/10/20.
@@ -8,19 +8,31 @@
 import UIKit
 import NVActivityIndicatorView
 
-class mainFeedViewController: UIViewController, NVActivityIndicatorViewable {
+class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable {
     
     //MARK: Outlets
+    
+    @IBOutlet weak var tableview: UITableView!
     
     var pedidos: [Dictionary<String, Any>] = []
     let userID = UserDefaults.standard.string(forKey: "UserID")
     
-    @IBOutlet weak var deliveryTableView: UITableView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         downloadData()
+    }
+    
+    //MARK: Funcs
+    
+    func setupTableView() {
+        tableview.allowsSelection = true
+        tableview.delegate = self
+        tableview.dataSource = self
+        tableview.tableFooterView = UIView()
+        tableview.separatorStyle = .none
+        let documentXib = UINib(nibName: "deliveryTableViewCell", bundle: nil)
+        tableview.register(documentXib, forCellReuseIdentifier: deliveryTableViewCell.cellidentifier)
     }
     
     func downloadData() {
@@ -29,7 +41,7 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable {
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
-        let postString = "funcion=getOrdersAvailable&id_user="+userID!
+        let postString = "funcion=getMyDeliveries&id_user="+userID!
         request.httpBody = postString.data(using: .utf8)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil, response != nil else {
@@ -48,26 +60,21 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable {
             DispatchQueue.main.async {
                 self.stopAnimating()
                 if self.pedidos.count > 0 {
-                    self.deliveryTableView.reloadData()
+                    self.tableview.reloadData()
                 }
             }
         }.resume()
     }
 
     
-    func setupTableView() {
-        deliveryTableView.allowsSelection = true
-        deliveryTableView.delegate = self
-        deliveryTableView.dataSource = self
-        deliveryTableView.tableFooterView = UIView()
-        deliveryTableView.separatorStyle = .none
-        let documentXib = UINib(nibName: "deliveryTableViewCell", bundle: nil)
-        deliveryTableView.register(documentXib, forCellReuseIdentifier: deliveryTableViewCell.cellidentifier)
+    @IBAction func closeView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-
+    
 }
 
-extension mainFeedViewController: UITableViewDelegate, UITableViewDataSource {
+
+extension myDeliveriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         pedidos.count

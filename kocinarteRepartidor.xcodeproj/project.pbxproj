@@ -22,6 +22,9 @@
 		9DDE85CD253BD40400FDD695 /* messageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDE85CB253BD40400FDD695 /* messageTableViewCell.xib */; };
 		9DDE85D1253BD6D900FDD695 /* chatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE85CF253BD6D900FDD695 /* chatDetailViewController.swift */; };
 		9DDE85D2253BD6D900FDD695 /* chatDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDE85D0253BD6D900FDD695 /* chatDetailViewController.xib */; };
+		9DDE85D6253BE94A00FDD695 /* deliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE85D4253BE94A00FDD695 /* deliveryTableViewCell.swift */; };
+		9DDE85D7253BE94A00FDD695 /* deliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDE85D5253BE94A00FDD695 /* deliveryTableViewCell.xib */; };
+		9DDE85DB253BED1200FDD695 /* myDeliveriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE85DA253BED1200FDD695 /* myDeliveriesViewController.swift */; };
 		9DE4A472253A523D00ED3CE0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A471253A523D00ED3CE0 /* Extensions.swift */; };
 		9DE4A477253A568F00ED3CE0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A476253A568F00ED3CE0 /* loginViewController.swift */; };
 		9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */; };
@@ -45,6 +48,9 @@
 		9DDE85CB253BD40400FDD695 /* messageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = messageTableViewCell.xib; sourceTree = "<group>"; };
 		9DDE85CF253BD6D900FDD695 /* chatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatDetailViewController.swift; sourceTree = "<group>"; };
 		9DDE85D0253BD6D900FDD695 /* chatDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = chatDetailViewController.xib; sourceTree = "<group>"; };
+		9DDE85D4253BE94A00FDD695 /* deliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deliveryTableViewCell.swift; sourceTree = "<group>"; };
+		9DDE85D5253BE94A00FDD695 /* deliveryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = deliveryTableViewCell.xib; sourceTree = "<group>"; };
+		9DDE85DA253BED1200FDD695 /* myDeliveriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myDeliveriesViewController.swift; sourceTree = "<group>"; };
 		9DE4A457253A390200ED3CE0 /* kocinarteRepartidor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kocinarteRepartidor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE4A461253A390200ED3CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DE4A466253A390500ED3CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				9DDE85B6253BC06E00FDD695 /* settingsViewController.swift */,
+				9DDE85D9253BECF900FDD695 /* Delivery */,
 				9DDE85B9253BC08A00FDD695 /* Profile */,
 			);
 			path = "Settings (Tab 3)";
@@ -109,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				9DDE85C2253BD21A00FDD695 /* mainFeedViewController.swift */,
+				9DDE85D4253BE94A00FDD695 /* deliveryTableViewCell.swift */,
+				9DDE85D5253BE94A00FDD695 /* deliveryTableViewCell.xib */,
 			);
 			path = "DeliveryMain (Tab 1)";
 			sourceTree = "<group>";
@@ -123,6 +132,14 @@
 				9DDE85D0253BD6D900FDD695 /* chatDetailViewController.xib */,
 			);
 			path = "Messages (Tab 2)";
+			sourceTree = "<group>";
+		};
+		9DDE85D9253BECF900FDD695 /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				9DDE85DA253BED1200FDD695 /* myDeliveriesViewController.swift */,
+			);
+			path = Delivery;
 			sourceTree = "<group>";
 		};
 		9DE4A44E253A390200ED3CE0 = {
@@ -266,6 +283,7 @@
 				9D5FD1EC253BB17000DAAB91 /* LaunchScreen.storyboard in Resources */,
 				9DDE85D2253BD6D900FDD695 /* chatDetailViewController.xib in Resources */,
 				9D669A62253BAD9500A375A7 /* Assets.xcassets in Resources */,
+				9DDE85D7253BE94A00FDD695 /* deliveryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,12 +337,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DDE85BF253BC0E300FDD695 /* profileResponse.swift in Sources */,
+				9DDE85D6253BE94A00FDD695 /* deliveryTableViewCell.swift in Sources */,
 				9D669A61253BAD9500A375A7 /* ViewController.swift in Sources */,
 				9DE4A492253AAE9E00ED3CE0 /* loginResponse.swift in Sources */,
 				9DDE85D1253BD6D900FDD695 /* chatDetailViewController.swift in Sources */,
 				9DDE85BB253BC09900FDD695 /* profileViewController.swift in Sources */,
 				9DDE85C3253BD21A00FDD695 /* mainFeedViewController.swift in Sources */,
 				9DE4A477253A568F00ED3CE0 /* loginViewController.swift in Sources */,
+				9DDE85DB253BED1200FDD695 /* myDeliveriesViewController.swift in Sources */,
 				9DE4A497253BACD900ED3CE0 /* mainViewController.swift in Sources */,
 				9D669A65253BAD9500A375A7 /* AppDelegate.swift in Sources */,
 				9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */,
