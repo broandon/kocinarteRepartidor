@@ -22,6 +22,7 @@ class loginViewController: UIViewController, NVActivityIndicatorViewable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        logInCheckUp()
     }
     
     //MARK: Funcs
@@ -44,6 +45,16 @@ class loginViewController: UIViewController, NVActivityIndicatorViewable {
         }
     }
     
+    func logInCheckUp() {
+        
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let homePage = storyBoard.instantiateViewController(withIdentifier: "mainScreen") as! UITabBarController
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = homePage
+        }
+    }
+    
     //MARK: Buttons
     
     @IBAction func loginButton(_ sender: Any) {
@@ -62,7 +73,7 @@ class loginViewController: UIViewController, NVActivityIndicatorViewable {
             return
         }
         startAnimating(type: .ballScaleMultiple, backgroundColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.2990421661))
-        let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice/controller_last.php")!
+        let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice_repartidor/controller_last.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
@@ -77,7 +88,7 @@ class loginViewController: UIViewController, NVActivityIndicatorViewable {
                 if loginInfo?.state == "200" {
                     
                     if let dictionary = json as? Dictionary<String, AnyObject> {
-                        
+
                         if let items = dictionary["data"] as? Dictionary<String, Any> {
                             let name = items["first_name"] as! String
                             let surname = items["last_name"] as! String
