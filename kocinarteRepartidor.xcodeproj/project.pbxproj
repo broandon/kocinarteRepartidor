@@ -8,29 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		8081FEBDC721910ED2DFB81D /* Pods_kocinarteRepartidor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252FE6757FD64DCD06A62E8F /* Pods_kocinarteRepartidor.framework */; };
-		9DE4A45B253A390200ED3CE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A45A253A390200ED3CE0 /* AppDelegate.swift */; };
-		9DE4A45F253A390200ED3CE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A45E253A390200ED3CE0 /* ViewController.swift */; };
-		9DE4A462253A390200ED3CE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A460253A390200ED3CE0 /* Main.storyboard */; };
-		9DE4A464253A390500ED3CE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A463253A390500ED3CE0 /* Assets.xcassets */; };
-		9DE4A467253A390500ED3CE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A465253A390500ED3CE0 /* LaunchScreen.storyboard */; };
+		9D5FD1EB253BB17000DAAB91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A460253A390200ED3CE0 /* Main.storyboard */; };
+		9D5FD1EC253BB17000DAAB91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A465253A390500ED3CE0 /* LaunchScreen.storyboard */; };
+		9D669A61253BAD9500A375A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D669A59253BAD9400A375A7 /* ViewController.swift */; };
+		9D669A62253BAD9500A375A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D669A5A253BAD9400A375A7 /* Assets.xcassets */; };
+		9D669A65253BAD9500A375A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D669A5F253BAD9400A375A7 /* AppDelegate.swift */; };
 		9DE4A472253A523D00ED3CE0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A471253A523D00ED3CE0 /* Extensions.swift */; };
 		9DE4A477253A568F00ED3CE0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A476253A568F00ED3CE0 /* loginViewController.swift */; };
 		9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */; };
+		9DE4A492253AAE9E00ED3CE0 /* loginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A491253AAE9E00ED3CE0 /* loginResponse.swift */; };
+		9DE4A497253BACD900ED3CE0 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A496253BACD900ED3CE0 /* mainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06810588B93F5B5B61F1B061 /* Pods-kocinarteRepartidor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kocinarteRepartidor.debug.xcconfig"; path = "Target Support Files/Pods-kocinarteRepartidor/Pods-kocinarteRepartidor.debug.xcconfig"; sourceTree = "<group>"; };
 		252FE6757FD64DCD06A62E8F /* Pods_kocinarteRepartidor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kocinarteRepartidor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D5FD1DC253BAFE200DAAB91 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D669A59253BAD9400A375A7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D669A5A253BAD9400A375A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9D669A5F253BAD9400A375A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DE4A457253A390200ED3CE0 /* kocinarteRepartidor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kocinarteRepartidor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DE4A45A253A390200ED3CE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9DE4A45E253A390200ED3CE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9DE4A461253A390200ED3CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9DE4A463253A390500ED3CE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DE4A466253A390500ED3CE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9DE4A468253A390500ED3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DE4A471253A523D00ED3CE0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9DE4A476253A568F00ED3CE0 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recoverAccountViewController.swift; sourceTree = "<group>"; };
+		9DE4A491253AAE9E00ED3CE0 /* loginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginResponse.swift; sourceTree = "<group>"; };
+		9DE4A496253BACD900ED3CE0 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		CC0F0BD3E287BBB8F5012313 /* Pods-kocinarteRepartidor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kocinarteRepartidor.release.xcconfig"; path = "Target Support Files/Pods-kocinarteRepartidor/Pods-kocinarteRepartidor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,13 +59,34 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9D669A58253BAD9400A375A7 /* kocinarteRepartidor */ = {
+			isa = PBXGroup;
+			children = (
+				9D669A59253BAD9400A375A7 /* ViewController.swift */,
+				9D669A5A253BAD9400A375A7 /* Assets.xcassets */,
+				9D669A5F253BAD9400A375A7 /* AppDelegate.swift */,
+				9D5FD1DC253BAFE200DAAB91 /* Info.plist */,
+			);
+			path = kocinarteRepartidor;
+			sourceTree = "<group>";
+		};
+		9DDE85B3253BC00600FDD695 /* Settings (Tab 3) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Settings (Tab 3)";
+			sourceTree = "<group>";
+		};
 		9DE4A44E253A390200ED3CE0 = {
 			isa = PBXGroup;
 			children = (
+				9DDE85B3253BC00600FDD695 /* Settings (Tab 3) */,
+				9DE4A495253BACBD00ED3CE0 /* Main */,
 				9DE4A488253A764E00ED3CE0 /* Models */,
 				9DE4A475253A568100ED3CE0 /* Account */,
+				9DE4A494253BAC3000ED3CE0 /* General */,
 				9DE4A470253A522900ED3CE0 /* Storyboards */,
-				9DE4A459253A390200ED3CE0 /* kocinarteRepartidor */,
+				9D669A58253BAD9400A375A7 /* kocinarteRepartidor */,
 				9DE4A458253A390200ED3CE0 /* Products */,
 				7A8E1B7717221342DB072729 /* Pods */,
 				E909C073933625CBEBA7EC5E /* Frameworks */,
@@ -76,23 +101,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9DE4A459253A390200ED3CE0 /* kocinarteRepartidor */ = {
-			isa = PBXGroup;
-			children = (
-				9DE4A45A253A390200ED3CE0 /* AppDelegate.swift */,
-				9DE4A45E253A390200ED3CE0 /* ViewController.swift */,
-				9DE4A460253A390200ED3CE0 /* Main.storyboard */,
-				9DE4A463253A390500ED3CE0 /* Assets.xcassets */,
-				9DE4A465253A390500ED3CE0 /* LaunchScreen.storyboard */,
-				9DE4A468253A390500ED3CE0 /* Info.plist */,
-			);
-			path = kocinarteRepartidor;
-			sourceTree = "<group>";
-		};
 		9DE4A470253A522900ED3CE0 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				9DE4A471253A523D00ED3CE0 /* Extensions.swift */,
+				9DE4A460253A390200ED3CE0 /* Main.storyboard */,
+				9DE4A465253A390500ED3CE0 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -109,8 +122,25 @@
 		9DE4A488253A764E00ED3CE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9DE4A491253AAE9E00ED3CE0 /* loginResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9DE4A494253BAC3000ED3CE0 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				9DE4A471253A523D00ED3CE0 /* Extensions.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		9DE4A495253BACBD00ED3CE0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9DE4A496253BACD900ED3CE0 /* mainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		E909C073933625CBEBA7EC5E /* Frameworks */ = {
@@ -180,9 +210,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DE4A467253A390500ED3CE0 /* LaunchScreen.storyboard in Resources */,
-				9DE4A464253A390500ED3CE0 /* Assets.xcassets in Resources */,
-				9DE4A462253A390200ED3CE0 /* Main.storyboard in Resources */,
+				9D5FD1EB253BB17000DAAB91 /* Main.storyboard in Resources */,
+				9D5FD1EC253BB17000DAAB91 /* LaunchScreen.storyboard in Resources */,
+				9D669A62253BAD9500A375A7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +265,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D669A61253BAD9500A375A7 /* ViewController.swift in Sources */,
+				9DE4A492253AAE9E00ED3CE0 /* loginResponse.swift in Sources */,
 				9DE4A477253A568F00ED3CE0 /* loginViewController.swift in Sources */,
-				9DE4A45F253A390200ED3CE0 /* ViewController.swift in Sources */,
+				9DE4A497253BACD900ED3CE0 /* mainViewController.swift in Sources */,
+				9D669A65253BAD9500A375A7 /* AppDelegate.swift in Sources */,
 				9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */,
 				9DE4A472253A523D00ED3CE0 /* Extensions.swift in Sources */,
-				9DE4A45B253A390200ED3CE0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

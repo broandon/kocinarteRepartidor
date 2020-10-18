@@ -1,4 +1,5 @@
 PODS:
+  - Hero (1.5.0)
   - IQKeyboardManager (6.5.5)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
@@ -9,6 +10,7 @@ PODS:
   - TableViewReloadAnimation (0.0.5)
 
 DEPENDENCIES:
+  - Hero
   - IQKeyboardManager
   - NVActivityIndicatorView
   - SDWebImage
@@ -16,17 +18,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Hero
     - IQKeyboardManager
     - NVActivityIndicatorView
     - SDWebImage
     - TableViewReloadAnimation
 
 SPEC CHECKSUMS:
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
 
-PODFILE CHECKSUM: b0b922cfa5555652bb5dcc0a81cc6c64086c3480
+PODFILE CHECKSUM: 7f4b0255a310292519ea15eb6fbb5c04f86e16ab
 
 COCOAPODS: 1.9.1

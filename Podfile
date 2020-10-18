@@ -11,5 +11,6 @@ target 'kocinarteRepartidor' do
   pod 'SDWebImage'
   pod 'TableViewReloadAnimation'
   pod 'NVActivityIndicatorView'
+  pod 'Hero'
 
 end
