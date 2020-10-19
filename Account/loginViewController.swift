@@ -23,6 +23,8 @@ class loginViewController: UIViewController, NVActivityIndicatorViewable {
         super.viewDidLoad()
         setupView()
         logInCheckUp()
+        let pushManager = PushNotificationManager(userID: "currently_logged_in_user_id")
+        print(pushManager.getToken())
     }
     
     //MARK: Funcs

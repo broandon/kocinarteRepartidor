@@ -12,5 +12,13 @@ target 'kocinarteRepartidor' do
   pod 'TableViewReloadAnimation'
   pod 'NVActivityIndicatorView'
   pod 'Hero'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/AdMob'
+  pod 'Firebase/Database'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
 
 end
