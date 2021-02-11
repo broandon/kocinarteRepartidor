@@ -8,7 +8,11 @@
 import UIKit
 import NVActivityIndicatorView
 
-class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable {
+class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable, showOrderDetail {
+    func showTheOrderDetail(idOrder: String) {
+        print(idOrder)
+    }
+    
     
     //MARK: Outlets
     
@@ -94,10 +98,15 @@ extension myDeliveriesViewController: UITableViewDelegate, UITableViewDataSource
         let fecha = item["fecha_compra"] as! String
         let estatus = item["estatus"] as! String
         let cellID = item["Id"] as! String
+        let IDAnfitrion = item["id_anfitrion"] as! String
         cell.nombreOrden.text = platillo as! String
         cell.estatusOrden.text = "Estatus: " + estatus
         cell.fechaOrden.text = "Fecha: " + fecha
         cell.costoOrden.text = "Costo: \(costo ?? "Error en el precio")"
+        let orderID = Int(IDAnfitrion)
+        cell.showDetailsButton.tag = orderID!
+        cell.delegate = self
+        
         return cell
     }
 }

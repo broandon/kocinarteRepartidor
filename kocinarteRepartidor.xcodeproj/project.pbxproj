@@ -32,6 +32,7 @@
 		9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */; };
 		9DE4A492253AAE9E00ED3CE0 /* loginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A491253AAE9E00ED3CE0 /* loginResponse.swift */; };
 		9DE4A497253BACD900ED3CE0 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A496253BACD900ED3CE0 /* mainViewController.swift */; };
+		9DF5C24225D4FF98004291B8 /* bankDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5C24125D4FF97004291B8 /* bankDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recoverAccountViewController.swift; sourceTree = "<group>"; };
 		9DE4A491253AAE9E00ED3CE0 /* loginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginResponse.swift; sourceTree = "<group>"; };
 		9DE4A496253BACD900ED3CE0 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		9DF5C24125D4FF97004291B8 /* bankDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bankDataViewController.swift; sourceTree = "<group>"; };
 		CC0F0BD3E287BBB8F5012313 /* Pods-kocinarteRepartidor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kocinarteRepartidor.release.xcconfig"; path = "Target Support Files/Pods-kocinarteRepartidor/Pods-kocinarteRepartidor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 		9DDE85B3253BC00600FDD695 /* Settings (Tab 3) */ = {
 			isa = PBXGroup;
 			children = (
+				9DF5C23F25D4FC52004291B8 /* Bank Data */,
 				9DDE85B6253BC06E00FDD695 /* settingsViewController.swift */,
 				9DDE85D9253BECF900FDD695 /* Delivery */,
 				9DDE85B9253BC08A00FDD695 /* Profile */,
@@ -217,6 +220,14 @@
 				9DE4A496253BACD900ED3CE0 /* mainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		9DF5C23F25D4FC52004291B8 /* Bank Data */ = {
+			isa = PBXGroup;
+			children = (
+				9DF5C24125D4FF97004291B8 /* bankDataViewController.swift */,
+			);
+			path = "Bank Data";
 			sourceTree = "<group>";
 		};
 		E909C073933625CBEBA7EC5E /* Frameworks */ = {
@@ -359,6 +370,7 @@
 				9D669A65253BAD9500A375A7 /* AppDelegate.swift in Sources */,
 				9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */,
 				9DE4A472253A523D00ED3CE0 /* Extensions.swift in Sources */,
+				9DF5C24225D4FF98004291B8 /* bankDataViewController.swift in Sources */,
 				9DDE85C7253BD2EC00FDD695 /* messagesViewController.swift in Sources */,
 				9DDE85CC253BD40400FDD695 /* messageTableViewCell.swift in Sources */,
 				9DDE85B7253BC06E00FDD695 /* settingsViewController.swift in Sources */,
@@ -511,7 +523,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kocinarteRepartidor/kocinarteRepartidor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = W4MERUEP35;
 				INFOPLIST_FILE = kocinarteRepartidor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -519,7 +531,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BilcomBMG.kocinarteRepartidor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -535,7 +547,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kocinarteRepartidor/kocinarteRepartidor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = W4MERUEP35;
 				INFOPLIST_FILE = kocinarteRepartidor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -543,7 +555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BilcomBMG.kocinarteRepartidor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol showOrderDetail {
+    func showTheOrderDetail(idOrder:String)
+}
+
 class deliveryTableViewCell: UITableViewCell {
     
     //MARK: Outlets
@@ -17,16 +21,17 @@ class deliveryTableViewCell: UITableViewCell {
     @IBOutlet weak var fechaOrden: UILabel!
     @IBOutlet weak var estatusOrden: UILabel!
     @IBOutlet weak var costoOrden: UILabel!
+    @IBOutlet weak var showDetailsButton: UIButton!
+    
+    var delegate : showOrderDetail!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
+    @IBAction func showTheDetail(_ sender: UIButton) {
+        let orderID = "\(sender.tag)"
+        self.delegate.showTheOrderDetail(idOrder: orderID)
+    }
 }

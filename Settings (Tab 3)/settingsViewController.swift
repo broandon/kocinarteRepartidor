@@ -35,6 +35,19 @@ class settingsViewController: UIViewController {
         }
     }
     
+    @IBAction func bankData(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "bankDataViewController") as! bankDataViewController
+        present(newViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func termsAndConditionsButton(_ sender: Any) {
+        if let url = URL(string: "http://kocinaarte.com/aviso/aviso_privacidad_app_repartidor.pdf") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    
     @IBAction func closeSessionAction(_ sender: Any) {
         let alert = UIAlertController(title: "Cerrar Sesión", message: "¿De verdad quieres cerrar sesión? Tendrás que introducir tu usuario y contraseña nuevamente.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Volver", style: .default, handler: nil))
