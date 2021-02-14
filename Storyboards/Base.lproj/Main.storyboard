@@ -1277,6 +1277,20 @@
                                     <constraint firstAttribute="trailing" secondItem="9B7-N3-vsa" secondAttribute="trailing" id="yF5-Rj-Rje"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZn-rQ-H4O">
+                                <rect key="frame" x="20" y="485" width="374" height="40"/>
+                                <color key="backgroundColor" name="SCRed"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AZs-lP-hZu"/>
+                                </constraints>
+                                <state key="normal" title="Actualizar información">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveNewBankData:" destination="cWi-xg-gWe" eventType="touchUpInside" id="tC7-My-vcN"/>
+                                    <action selector="saveNewInfo:" destination="w4e-iy-QCt" eventType="touchUpInside" id="SGL-rB-WeP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8uD-oU-wbh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1292,6 +1306,7 @@
                             <constraint firstItem="Brw-4X-Opc" firstAttribute="top" secondItem="dIJ-l3-sTR" secondAttribute="bottom" constant="8" symbolic="YES" id="QeT-b9-D4f"/>
                             <constraint firstItem="WTl-CR-4IC" firstAttribute="top" secondItem="ZkJ-lc-0Yw" secondAttribute="bottom" constant="8" symbolic="YES" id="ZV2-nA-42X"/>
                             <constraint firstItem="v4h-K6-0pF" firstAttribute="leading" secondItem="8uD-oU-wbh" secondAttribute="leading" constant="20" id="bhr-2c-Ynq"/>
+                            <constraint firstItem="8uD-oU-wbh" firstAttribute="trailing" secondItem="dZn-rQ-H4O" secondAttribute="trailing" constant="20" id="d4P-7A-RVG"/>
                             <constraint firstItem="WK6-0R-h8g" firstAttribute="top" secondItem="Brw-4X-Opc" secondAttribute="bottom" constant="8" symbolic="YES" id="dth-Cj-Lt4"/>
                             <constraint firstItem="8uD-oU-wbh" firstAttribute="trailing" secondItem="WTl-CR-4IC" secondAttribute="trailing" constant="20" id="e9A-AC-7Qb"/>
                             <constraint firstItem="8uD-oU-wbh" firstAttribute="trailing" secondItem="Brw-4X-Opc" secondAttribute="trailing" constant="20" id="eFM-sl-pXB"/>
@@ -1300,8 +1315,10 @@
                             <constraint firstItem="ojA-zv-ga7" firstAttribute="leading" secondItem="8uD-oU-wbh" secondAttribute="leading" id="kQC-66-iMk"/>
                             <constraint firstItem="ojA-zv-ga7" firstAttribute="top" secondItem="8uD-oU-wbh" secondAttribute="top" id="lyI-KA-RWP"/>
                             <constraint firstItem="dIJ-l3-sTR" firstAttribute="top" secondItem="JR7-kD-pny" secondAttribute="bottom" constant="8" symbolic="YES" id="mVw-C4-aRC"/>
+                            <constraint firstItem="dZn-rQ-H4O" firstAttribute="top" secondItem="WK6-0R-h8g" secondAttribute="bottom" constant="30" id="ohx-82-qI1"/>
                             <constraint firstItem="8uD-oU-wbh" firstAttribute="trailing" secondItem="WK6-0R-h8g" secondAttribute="trailing" constant="20" id="qfg-0E-y9W"/>
                             <constraint firstItem="Brw-4X-Opc" firstAttribute="leading" secondItem="8uD-oU-wbh" secondAttribute="leading" constant="20" id="rLD-Ik-hPx"/>
+                            <constraint firstItem="dZn-rQ-H4O" firstAttribute="leading" secondItem="8uD-oU-wbh" secondAttribute="leading" constant="20" id="tum-s3-JgM"/>
                             <constraint firstItem="ojA-zv-ga7" firstAttribute="trailing" secondItem="8uD-oU-wbh" secondAttribute="trailing" id="utl-dk-fRc"/>
                             <constraint firstItem="WK6-0R-h8g" firstAttribute="leading" secondItem="8uD-oU-wbh" secondAttribute="leading" constant="20" id="uuW-h2-bT2"/>
                             <constraint firstItem="ZjR-wk-osK" firstAttribute="leading" secondItem="8uD-oU-wbh" secondAttribute="leading" constant="20" id="vS9-Wb-ZRi"/>
@@ -1318,6 +1335,7 @@
                         <outlet property="accountInformation" destination="Q98-5a-VVY" id="IXC-6d-l8J"/>
                         <outlet property="bankInformation" destination="7L7-X6-rug" id="7eL-Wz-D8p"/>
                         <outlet property="fiscalAddressInformation" destination="qRb-Lu-Hwv" id="eLU-QT-gmK"/>
+                        <outlet property="newBankInfoButton" destination="dZn-rQ-H4O" id="Y5e-Zz-rtj"/>
                         <outlet property="titleName" destination="WTl-CR-4IC" id="SiU-yE-hc3"/>
                     </connections>
                 </viewController>

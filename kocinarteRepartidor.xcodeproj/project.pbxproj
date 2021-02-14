@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		8081FEBDC721910ED2DFB81D /* Pods_kocinarteRepartidor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 252FE6757FD64DCD06A62E8F /* Pods_kocinarteRepartidor.framework */; };
 		9D0DE225253D0D660002BD9A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D0DE224253D0D660002BD9A /* GoogleService-Info.plist */; };
+		9D317EB125D8A19400C8E852 /* dishesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D317EAF25D8A19400C8E852 /* dishesTableViewCell.swift */; };
+		9D317EB225D8A19500C8E852 /* dishesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D317EB025D8A19400C8E852 /* dishesTableViewCell.xib */; };
 		9D5FD1EB253BB17000DAAB91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A460253A390200ED3CE0 /* Main.storyboard */; };
 		9D5FD1EC253BB17000DAAB91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4A465253A390500ED3CE0 /* LaunchScreen.storyboard */; };
 		9D669A61253BAD9500A375A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D669A59253BAD9400A375A7 /* ViewController.swift */; };
 		9D669A62253BAD9500A375A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D669A5A253BAD9400A375A7 /* Assets.xcassets */; };
 		9D669A65253BAD9500A375A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D669A5F253BAD9400A375A7 /* AppDelegate.swift */; };
 		9D8C0F45253D115C004EBC76 /* pushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C0F44253D115C004EBC76 /* pushNotificationManager.swift */; };
+		9DDDAD4025D6001A006A11B3 /* profileDeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDDAD3E25D6001A006A11B3 /* profileDeliveryDetailViewController.swift */; };
+		9DDDAD4125D6001A006A11B3 /* profileDeliveryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDDAD3F25D6001A006A11B3 /* profileDeliveryDetailViewController.xib */; };
 		9DDE85B7253BC06E00FDD695 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE85B6253BC06E00FDD695 /* settingsViewController.swift */; };
 		9DDE85BB253BC09900FDD695 /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE85BA253BC09900FDD695 /* profileViewController.swift */; };
 		9DDE85BF253BC0E300FDD695 /* profileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE85BE253BC0E300FDD695 /* profileResponse.swift */; };
@@ -31,7 +35,6 @@
 		9DE4A477253A568F00ED3CE0 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A476253A568F00ED3CE0 /* loginViewController.swift */; };
 		9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */; };
 		9DE4A492253AAE9E00ED3CE0 /* loginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A491253AAE9E00ED3CE0 /* loginResponse.swift */; };
-		9DE4A497253BACD900ED3CE0 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4A496253BACD900ED3CE0 /* mainViewController.swift */; };
 		9DF5C24225D4FF98004291B8 /* bankDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF5C24125D4FF97004291B8 /* bankDataViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,12 +42,16 @@
 		06810588B93F5B5B61F1B061 /* Pods-kocinarteRepartidor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kocinarteRepartidor.debug.xcconfig"; path = "Target Support Files/Pods-kocinarteRepartidor/Pods-kocinarteRepartidor.debug.xcconfig"; sourceTree = "<group>"; };
 		252FE6757FD64DCD06A62E8F /* Pods_kocinarteRepartidor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kocinarteRepartidor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0DE224253D0D660002BD9A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9D317EAF25D8A19400C8E852 /* dishesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dishesTableViewCell.swift; sourceTree = "<group>"; };
+		9D317EB025D8A19400C8E852 /* dishesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = dishesTableViewCell.xib; sourceTree = "<group>"; };
 		9D5FD1DC253BAFE200DAAB91 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D669A59253BAD9400A375A7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D669A5A253BAD9400A375A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D669A5F253BAD9400A375A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8C0F42253D10B6004EBC76 /* kocinarteRepartidor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kocinarteRepartidor.entitlements; sourceTree = "<group>"; };
 		9D8C0F44253D115C004EBC76 /* pushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pushNotificationManager.swift; sourceTree = "<group>"; };
+		9DDDAD3E25D6001A006A11B3 /* profileDeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileDeliveryDetailViewController.swift; sourceTree = "<group>"; };
+		9DDDAD3F25D6001A006A11B3 /* profileDeliveryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = profileDeliveryDetailViewController.xib; sourceTree = "<group>"; };
 		9DDE85B6253BC06E00FDD695 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		9DDE85BA253BC09900FDD695 /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		9DDE85BE253BC0E300FDD695 /* profileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileResponse.swift; sourceTree = "<group>"; };
@@ -64,7 +71,6 @@
 		9DE4A476253A568F00ED3CE0 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		9DE4A47F253A616D00ED3CE0 /* recoverAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recoverAccountViewController.swift; sourceTree = "<group>"; };
 		9DE4A491253AAE9E00ED3CE0 /* loginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginResponse.swift; sourceTree = "<group>"; };
-		9DE4A496253BACD900ED3CE0 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		9DF5C24125D4FF97004291B8 /* bankDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bankDataViewController.swift; sourceTree = "<group>"; };
 		CC0F0BD3E287BBB8F5012313 /* Pods-kocinarteRepartidor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kocinarteRepartidor.release.xcconfig"; path = "Target Support Files/Pods-kocinarteRepartidor/Pods-kocinarteRepartidor.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +96,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9D317EAE25D8A16800C8E852 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9D317EAF25D8A19400C8E852 /* dishesTableViewCell.swift */,
+				9D317EB025D8A19400C8E852 /* dishesTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9D669A58253BAD9400A375A7 /* kocinarteRepartidor */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,11 +118,21 @@
 			path = kocinarteRepartidor;
 			sourceTree = "<group>";
 		};
+		9DDDAD3D25D5FE00006A11B3 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				9D317EAE25D8A16800C8E852 /* Cells */,
+				9DDDAD3E25D6001A006A11B3 /* profileDeliveryDetailViewController.swift */,
+				9DDDAD3F25D6001A006A11B3 /* profileDeliveryDetailViewController.xib */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		9DDE85B3253BC00600FDD695 /* Settings (Tab 3) */ = {
 			isa = PBXGroup;
 			children = (
-				9DF5C23F25D4FC52004291B8 /* Bank Data */,
 				9DDE85B6253BC06E00FDD695 /* settingsViewController.swift */,
+				9DF5C23F25D4FC52004291B8 /* Bank Data */,
 				9DDE85D9253BECF900FDD695 /* Delivery */,
 				9DDE85B9253BC08A00FDD695 /* Profile */,
 			);
@@ -155,10 +180,10 @@
 		9DE4A44E253A390200ED3CE0 = {
 			isa = PBXGroup;
 			children = (
+				9DDDAD3D25D5FE00006A11B3 /* Details */,
 				9DDE85B3253BC00600FDD695 /* Settings (Tab 3) */,
 				9DDE85C5253BD2D500FDD695 /* Messages (Tab 2) */,
 				9DDE85C1253BD1FD00FDD695 /* DeliveryMain (Tab 1) */,
-				9DE4A495253BACBD00ED3CE0 /* Main */,
 				9DE4A488253A764E00ED3CE0 /* Models */,
 				9DE4A475253A568100ED3CE0 /* Account */,
 				9DE4A494253BAC3000ED3CE0 /* General */,
@@ -212,14 +237,6 @@
 				9D8C0F44253D115C004EBC76 /* pushNotificationManager.swift */,
 			);
 			path = General;
-			sourceTree = "<group>";
-		};
-		9DE4A495253BACBD00ED3CE0 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				9DE4A496253BACD900ED3CE0 /* mainViewController.swift */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		9DF5C23F25D4FC52004291B8 /* Bank Data */ = {
@@ -301,9 +318,11 @@
 				9DDE85CD253BD40400FDD695 /* messageTableViewCell.xib in Resources */,
 				9D5FD1EC253BB17000DAAB91 /* LaunchScreen.storyboard in Resources */,
 				9DDE85D2253BD6D900FDD695 /* chatDetailViewController.xib in Resources */,
+				9D317EB225D8A19500C8E852 /* dishesTableViewCell.xib in Resources */,
 				9D669A62253BAD9500A375A7 /* Assets.xcassets in Resources */,
 				9DDE85D7253BE94A00FDD695 /* deliveryTableViewCell.xib in Resources */,
 				9D0DE225253D0D660002BD9A /* GoogleService-Info.plist in Resources */,
+				9DDDAD4125D6001A006A11B3 /* profileDeliveryDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,8 +384,9 @@
 				9DDE85C3253BD21A00FDD695 /* mainFeedViewController.swift in Sources */,
 				9DE4A477253A568F00ED3CE0 /* loginViewController.swift in Sources */,
 				9D8C0F45253D115C004EBC76 /* pushNotificationManager.swift in Sources */,
+				9D317EB125D8A19400C8E852 /* dishesTableViewCell.swift in Sources */,
+				9DDDAD4025D6001A006A11B3 /* profileDeliveryDetailViewController.swift in Sources */,
 				9DDE85DB253BED1200FDD695 /* myDeliveriesViewController.swift in Sources */,
-				9DE4A497253BACD900ED3CE0 /* mainViewController.swift in Sources */,
 				9D669A65253BAD9500A375A7 /* AppDelegate.swift in Sources */,
 				9DE4A480253A616D00ED3CE0 /* recoverAccountViewController.swift in Sources */,
 				9DE4A472253A523D00ED3CE0 /* Extensions.swift in Sources */,
@@ -523,7 +543,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kocinarteRepartidor/kocinarteRepartidor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = W4MERUEP35;
 				INFOPLIST_FILE = kocinarteRepartidor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -547,7 +567,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kocinarteRepartidor/kocinarteRepartidor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = W4MERUEP35;
 				INFOPLIST_FILE = kocinarteRepartidor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;

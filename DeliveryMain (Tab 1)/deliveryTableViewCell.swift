@@ -8,7 +8,7 @@
 import UIKit
 
 protocol showOrderDetail {
-    func showTheOrderDetail(idOrder:String)
+    func showTheOrderDetail(idOrder:String, typeOfOrder:String)
 }
 
 class deliveryTableViewCell: UITableViewCell {
@@ -24,6 +24,7 @@ class deliveryTableViewCell: UITableViewCell {
     @IBOutlet weak var showDetailsButton: UIButton!
     
     var delegate : showOrderDetail!
+    var typeOfOrder: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +33,6 @@ class deliveryTableViewCell: UITableViewCell {
     
     @IBAction func showTheDetail(_ sender: UIButton) {
         let orderID = "\(sender.tag)"
-        self.delegate.showTheOrderDetail(idOrder: orderID)
+        self.delegate.showTheOrderDetail(idOrder: orderID, typeOfOrder: typeOfOrder)
     }
 }

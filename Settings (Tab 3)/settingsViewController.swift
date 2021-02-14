@@ -9,11 +9,12 @@ import UIKit
 
 class settingsViewController: UIViewController {
     
+    //MARK: viewDid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-    
     
     //MARK: Buttons
     

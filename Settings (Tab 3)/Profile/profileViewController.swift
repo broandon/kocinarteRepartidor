@@ -26,9 +26,6 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         downloadData()
     }
     
@@ -44,12 +41,11 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
     
     func downloadData() {
         startAnimating(type: .ballScaleMultiple, backgroundColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.2990421661))
-        let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
         let postString = "funcion=getUserInfo&id_user="+userID
-        print(postString)
         request.httpBody = postString.data(using: .utf8)
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil, response != nil else {
@@ -58,8 +54,7 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
             let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
             
             if let dictionary = json as? Dictionary<String, AnyObject>{
-                print("This is the dictionary")
-                print(dictionary)
+                
                 if let pedidos = dictionary["data"] as? Dictionary<String, AnyObject> {
                     
                     if let info = pedidos["info"] as? Dictionary<String, AnyObject>{
@@ -67,7 +62,6 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
                         let name = info["nombre"] as? String
                         let surname = info["apellidos"] as? String
                         let phone = info["telefono"] as? String
-                        
                         DispatchQueue.main.async {
                             self.nameTF.text = name
                             self.profileImage.sd_setImage(with: URL(string: image ?? ""), completed: nil)
@@ -75,7 +69,6 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
                             self.phoneTF.text = phone
                             self.stopAnimating()
                         }
-                        
                     } else {
                         print("Error al actualizar la informacion.")
                     }
@@ -92,6 +85,7 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBAction func saveNewInfo(_ sender: Any) {
         startAnimating(type: .ballScaleMultiple, backgroundColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.2990421661))
+        
         if nameTF.text?.isEmpty == true {
             let alert = UIAlertController(title: "Error", message: "No puedes dejar tu nombre vacio.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Escribir un nombre", style: .default, handler: nil))
@@ -108,7 +102,6 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
             return
         }
         
-        
         if phoneTF.text?.isEmpty == true {
             let alert = UIAlertController(title: "Error", message: "No puedes dejar tu numero telefonico vacio.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Escribir un teléfono", style: .default, handler: nil))
@@ -117,8 +110,6 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
             return
         }
         
-        
-        // POST REQUEST
         let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice_repartidor/controller_last.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
@@ -153,5 +144,4 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
         }
         task.resume()
     }
-    
 }

@@ -9,8 +9,17 @@ import UIKit
 import NVActivityIndicatorView
 
 class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable, showOrderDetail {
-    func showTheOrderDetail(idOrder: String) {
-        print(idOrder)
+    
+    func showTheOrderDetail(idOrder: String, typeOfOrder: String) {
+        let myViewController = profileDeliveryDetailViewController(nibName: "profileDeliveryDetailViewController", bundle: nil)
+        if #available(iOS 13.0, *) {
+            myViewController.isModalInPresentation = true
+        } else {
+            // Fallback on earlier versions
+        }
+        myViewController.idOrder = idOrder
+        myViewController.typeOfOrder = typeOfOrder
+        present(myViewController, animated: true, completion: nil)
     }
     
     
@@ -41,7 +50,7 @@ class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable,
     
     func downloadData() {
         startAnimating(type: .ballScaleMultiple, backgroundColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.2990421661))
-        let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
@@ -97,7 +106,7 @@ extension myDeliveriesViewController: UITableViewDelegate, UITableViewDataSource
         let costo = item["costo"]
         let fecha = item["fecha_compra"] as! String
         let estatus = item["estatus"] as! String
-        let cellID = item["Id"] as! String
+        let type = item["tipo"] as! String
         let IDAnfitrion = item["id_anfitrion"] as! String
         cell.nombreOrden.text = platillo as! String
         cell.estatusOrden.text = "Estatus: " + estatus
@@ -105,8 +114,8 @@ extension myDeliveriesViewController: UITableViewDelegate, UITableViewDataSource
         cell.costoOrden.text = "Costo: \(costo ?? "Error en el precio")"
         let orderID = Int(IDAnfitrion)
         cell.showDetailsButton.tag = orderID!
+        cell.typeOfOrder = type
         cell.delegate = self
-        
         return cell
     }
 }
