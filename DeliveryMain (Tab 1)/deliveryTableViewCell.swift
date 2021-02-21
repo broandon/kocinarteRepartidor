@@ -25,10 +25,12 @@ class deliveryTableViewCell: UITableViewCell {
     
     var delegate : showOrderDetail!
     var typeOfOrder: String = ""
+    var detailView: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        print(detailView)
     }
     
     @IBAction func showTheDetail(_ sender: UIButton) {

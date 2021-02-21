@@ -15,6 +15,7 @@
                 <outlet property="costInfo" destination="TkQ-Xn-C95" id="Q3H-Md-dEA"/>
                 <outlet property="dishesTableView" destination="vT5-9K-n5D" id="zJn-2h-DnK"/>
                 <outlet property="mapInformation" destination="hsd-QW-fQg" id="HMp-NZ-6wF"/>
+                <outlet property="markAsButton" destination="fUs-ZQ-qxM" id="cS8-cE-Ynp"/>
                 <outlet property="menuName" destination="5H7-0T-tSQ" id="GV6-8e-Wkq"/>
                 <outlet property="offeredBy" destination="TpM-AA-C0u" id="wpU-IK-8Vm"/>
                 <outlet property="quantityInfo" destination="r2b-VQ-Bbg" id="QqA-oF-COT"/>
@@ -211,6 +212,16 @@
                         <constraint firstAttribute="height" constant="140" id="zfK-D2-mxT"/>
                     </constraints>
                 </mapView>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUs-ZQ-qxM">
+                    <rect key="frame" x="20" y="718" width="374" height="60"/>
+                    <color key="backgroundColor" red="0.5864525437" green="0.75069230789999997" blue="0.1172239259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="iYn-N0-vZo"/>
+                    </constraints>
+                    <state key="normal" title="Marcar como entregado">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -229,6 +240,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vT5-9K-n5D" secondAttribute="trailing" constant="20" id="K4I-iA-OLz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TpM-AA-C0u" secondAttribute="trailing" constant="20" id="MDZ-xX-FRi"/>
                 <constraint firstItem="4Zl-Zu-HTT" firstAttribute="top" secondItem="vT5-9K-n5D" secondAttribute="bottom" constant="8" id="OHf-xW-8Sd"/>
+                <constraint firstItem="fUs-ZQ-qxM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="TTz-mk-pNv"/>
                 <constraint firstItem="5H7-0T-tSQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="U81-mZ-pv5"/>
                 <constraint firstItem="5H7-0T-tSQ" firstAttribute="top" secondItem="XfN-3Q-Kyd" secondAttribute="bottom" constant="8" symbolic="YES" id="VKz-ZP-DNR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hsd-QW-fQg" secondAttribute="trailing" constant="20" id="WIa-Om-CO3"/>
@@ -241,6 +253,8 @@
                 <constraint firstItem="XfN-3Q-Kyd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eYX-3d-SNa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="svu-2R-81j" secondAttribute="trailing" constant="20" id="fST-zl-pgG"/>
                 <constraint firstItem="FMf-sI-osP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="g6j-gB-bgE"/>
+                <constraint firstItem="fUs-ZQ-qxM" firstAttribute="top" secondItem="svu-2R-81j" secondAttribute="bottom" constant="8" symbolic="YES" id="h7A-Lq-NVn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fUs-ZQ-qxM" secondAttribute="trailing" constant="20" id="iBj-r6-90i"/>
                 <constraint firstItem="svu-2R-81j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="jDD-aG-gox"/>
                 <constraint firstItem="Mis-hi-eUK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kid-PZ-MB8"/>
                 <constraint firstItem="TpM-AA-C0u" firstAttribute="top" secondItem="5H7-0T-tSQ" secondAttribute="bottom" constant="8" symbolic="YES" id="l3u-H0-Yq7"/>

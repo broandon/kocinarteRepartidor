@@ -10,25 +10,14 @@ import NVActivityIndicatorView
 
 class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable, showOrderDetail {
     
-    func showTheOrderDetail(idOrder: String, typeOfOrder: String) {
-        let myViewController = profileDeliveryDetailViewController(nibName: "profileDeliveryDetailViewController", bundle: nil)
-        if #available(iOS 13.0, *) {
-            myViewController.isModalInPresentation = true
-        } else {
-            // Fallback on earlier versions
-        }
-        myViewController.idOrder = idOrder
-        myViewController.typeOfOrder = typeOfOrder
-        present(myViewController, animated: true, completion: nil)
-    }
-    
-    
     //MARK: Outlets
     
     @IBOutlet weak var tableview: UITableView!
     
     var pedidos: [Dictionary<String, Any>] = []
     let userID = UserDefaults.standard.string(forKey: "UserID")
+    
+    //MARK: viewDid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +26,18 @@ class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable,
     }
     
     //MARK: Funcs
+    
+    func showTheOrderDetail(idOrder: String, typeOfOrder: String) {
+        let myViewController = profileDeliveryDetailViewController(nibName: "profileDeliveryDetailViewController", bundle: nil)
+        if #available(iOS 13.0, *) {
+            myViewController.isModalInPresentation = true
+        } else {
+            // Theres is no fallback in earlier versions. They will just use the button normally.
+        }
+        myViewController.idOrder = idOrder
+        myViewController.typeOfOrder = typeOfOrder
+        present(myViewController, animated: true, completion: nil)
+    }
     
     func setupTableView() {
         tableview.allowsSelection = true
@@ -65,9 +66,9 @@ class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable,
             if let dictionary = json as? Dictionary<String, AnyObject>{
                 print(dictionary)
                 if let pedidos = dictionary["data"] {
-                        for d in pedidos as! [Dictionary<String, AnyObject>] {
-                            self.pedidos.append(d)
-                        }
+                    for d in pedidos as! [Dictionary<String, AnyObject>] {
+                        self.pedidos.append(d)
+                    }
                 }
             }
             DispatchQueue.main.async {
@@ -78,7 +79,7 @@ class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable,
             }
         }.resume()
     }
-
+    
     
     @IBAction func closeView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -107,12 +108,12 @@ extension myDeliveriesViewController: UITableViewDelegate, UITableViewDataSource
         let fecha = item["fecha_compra"] as! String
         let estatus = item["estatus"] as! String
         let type = item["tipo"] as! String
-        let IDAnfitrion = item["id_anfitrion"] as! String
+        let ID = item["Id"] as! String
         cell.nombreOrden.text = platillo as! String
         cell.estatusOrden.text = "Estatus: " + estatus
         cell.fechaOrden.text = "Fecha: " + fecha
         cell.costoOrden.text = "Costo: \(costo ?? "Error en el precio")"
-        let orderID = Int(IDAnfitrion)
+        let orderID = Int(ID)
         cell.showDetailsButton.tag = orderID!
         cell.typeOfOrder = type
         cell.delegate = self
