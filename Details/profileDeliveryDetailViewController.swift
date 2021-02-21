@@ -42,14 +42,16 @@ class profileDeliveryDetailViewController: UIViewController {
     
     func buttonHandler(orderType: String) {
         switch orderType {
-        case "Empty":
+        case "2":
             DispatchQueue.main.async {
-                print("The damn thing is empty")
-                self.markAsButton.alpha = 0.5
-                self.markAsButton.setTitle("Sin opciones disponibles.", for: .normal)
+                self.markAsButton.setTitle("Aceptar Pedido", for: .normal)
             }
         default:
-            print("value is \(orderType)")
+            DispatchQueue.main.async {
+                self.markAsButton.alpha = 0.5
+                self.markAsButton.isUserInteractionEnabled = false
+                self.markAsButton.setTitle("Sin Opciones Disponibles", for: .normal)
+            }
         }
     }
     
@@ -60,6 +62,13 @@ class profileDeliveryDetailViewController: UIViewController {
         self.mapInformation.showsUserLocation = false
         self.mapInformation.userTrackingMode = .none
         self.mapInformation.mapType = .standard
+    }
+    
+    func showCircle(coordinate: CLLocationCoordinate2D,
+                    radius: CLLocationDistance) {
+        let circle = MKCircle(center: coordinate,
+                              radius: radius)
+        mapInformation.addOverlay(circle)
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -98,8 +107,8 @@ class profileDeliveryDetailViewController: UIViewController {
                         let cantidad = info["cantidad"] as? String
                         let costo = info["sub_total"] as? String
                         let costoEnvio = info["costo_envio"] as? String
-                        let tipo = info["tipo"] as? String
-                        self.buttonHandler(orderType: tipo ?? "Empty")
+                        let estatus = info["estatus"] as? String
+                        self.buttonHandler(orderType: estatus ?? "Empty")
                         DispatchQueue.main.async {
                             self.menuName.setTitle(menuName, for: .normal)
                             self.offeredBy.setTitle( "Ofrecido por: \(anfitrion ?? "")", for: .normal)
@@ -123,5 +132,18 @@ class profileDeliveryDetailViewController: UIViewController {
     
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func changeStatusButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Confirmar", message: "¿De verdad quieres aceptar el pedido?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Option", style: .default, handler: { action in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(alert, animated: true)
     }
 }

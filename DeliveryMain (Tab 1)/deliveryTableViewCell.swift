@@ -16,21 +16,17 @@ class deliveryTableViewCell: UITableViewCell {
     //MARK: Outlets
     
     static let cellidentifier = "activeOrdersTableViewCell"
-    
     @IBOutlet weak var nombreOrden: UILabel!
     @IBOutlet weak var fechaOrden: UILabel!
     @IBOutlet weak var estatusOrden: UILabel!
     @IBOutlet weak var costoOrden: UILabel!
     @IBOutlet weak var showDetailsButton: UIButton!
-    
     var delegate : showOrderDetail!
     var typeOfOrder: String = ""
     var detailView: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        print(detailView)
     }
     
     @IBAction func showTheDetail(_ sender: UIButton) {

@@ -543,7 +543,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kocinarteRepartidor/kocinarteRepartidor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = W4MERUEP35;
 				INFOPLIST_FILE = kocinarteRepartidor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -567,7 +567,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kocinarteRepartidor/kocinarteRepartidor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = W4MERUEP35;
 				INFOPLIST_FILE = kocinarteRepartidor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;

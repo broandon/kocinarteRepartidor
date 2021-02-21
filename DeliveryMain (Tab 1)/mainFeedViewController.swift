@@ -9,22 +9,33 @@ import UIKit
 import NVActivityIndicatorView
 
 class mainFeedViewController: UIViewController, NVActivityIndicatorViewable, showOrderDetail {
-    func showTheOrderDetail(idOrder: String, typeOfOrder: String) {
-        print(idOrder,typeOfOrder)
-    }
-    
     
     //MARK: Outlets
     
     var pedidos: [Dictionary<String, Any>] = []
     let userID = UserDefaults.standard.string(forKey: "UserID")
-    
     @IBOutlet weak var deliveryTableView: UITableView!
-
+    
+    //MARK: viewDid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         downloadData()
+    }
+    
+    //MARK: Funcs
+    
+    func showTheOrderDetail(idOrder: String, typeOfOrder: String) {
+        let myViewController = profileDeliveryDetailViewController(nibName: "profileDeliveryDetailViewController", bundle: nil)
+        if #available(iOS 13.0, *) {
+            myViewController.isModalInPresentation = true
+        } else {
+            // Theres is no fallback in earlier versions. They will just use the button normally.
+        }
+        myViewController.idOrder = idOrder
+        myViewController.typeOfOrder = typeOfOrder
+        present(myViewController, animated: true, completion: nil)
     }
     
     func downloadData() {
@@ -44,9 +55,9 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable, sho
             if let dictionary = json as? Dictionary<String, AnyObject>{
                 print(dictionary)
                 if let pedidos = dictionary["data"] {
-                        for d in pedidos as! [Dictionary<String, AnyObject>] {
-                            self.pedidos.append(d)
-                        }
+                    for d in pedidos as! [Dictionary<String, AnyObject>] {
+                        self.pedidos.append(d)
+                    }
                 }
             }
             DispatchQueue.main.async {
@@ -57,7 +68,6 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable, sho
             }
         }.resume()
     }
-
     
     func setupTableView() {
         deliveryTableView.allowsSelection = true
@@ -68,8 +78,9 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable, sho
         let documentXib = UINib(nibName: "deliveryTableViewCell", bundle: nil)
         deliveryTableView.register(documentXib, forCellReuseIdentifier: deliveryTableViewCell.cellidentifier)
     }
-
 }
+
+//MARK: Extension
 
 extension mainFeedViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -96,7 +107,7 @@ extension mainFeedViewController: UITableViewDelegate, UITableViewDataSource {
         let orderID = Int(IDAnfitrion)
         cell.showDetailsButton.tag = orderID!
         cell.typeOfOrder = type
-        cell.nombreOrden.text = platillo as! String
+        cell.nombreOrden.text = platillo as? String
         cell.estatusOrden.text = "Estatus: " + estatus
         cell.fechaOrden.text = "Fecha: " + fecha
         cell.costoOrden.text = "Costo: \(costo ?? "Error en el precio")"
