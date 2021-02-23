@@ -36,6 +36,7 @@ class myDeliveriesViewController: UIViewController, NVActivityIndicatorViewable,
         }
         myViewController.idOrder = idOrder
         myViewController.typeOfOrder = typeOfOrder
+        myViewController.comingFrom = "profile"
         present(myViewController, animated: true, completion: nil)
     }
     

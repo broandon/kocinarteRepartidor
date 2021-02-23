@@ -8,16 +8,17 @@
 import UIKit
 
 class dishesTableViewCell: UITableViewCell {
+    
+    //MARK: Outlets
+    
+    @IBOutlet weak var nombrePlatillo: UILabel!
+    @IBOutlet weak var precioDePlatillo: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }

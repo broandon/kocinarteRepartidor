@@ -35,6 +35,7 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable, sho
         }
         myViewController.idOrder = idOrder
         myViewController.typeOfOrder = typeOfOrder
+        myViewController.comingFrom = "main"
         present(myViewController, animated: true, completion: nil)
     }
     
@@ -54,6 +55,7 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable, sho
             
             if let dictionary = json as? Dictionary<String, AnyObject>{
                 print(dictionary)
+                self.pedidos.removeAll()
                 if let pedidos = dictionary["data"] {
                     for d in pedidos as! [Dictionary<String, AnyObject>] {
                         self.pedidos.append(d)
@@ -102,9 +104,9 @@ extension mainFeedViewController: UITableViewDelegate, UITableViewDataSource {
         let fecha = item["fecha_compra"] as! String
         let estatus = item["estatus"] as! String
         let type = item["tipo"] as! String
-        let IDAnfitrion = item["id_anfitrion"] as! String
+        let ID = item["Id"] as! String
         cell.delegate = self
-        let orderID = Int(IDAnfitrion)
+        let orderID = Int(ID)
         cell.showDetailsButton.tag = orderID!
         cell.typeOfOrder = type
         cell.nombreOrden.text = platillo as? String

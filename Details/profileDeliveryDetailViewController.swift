@@ -12,9 +12,18 @@ class profileDeliveryDetailViewController: UIViewController {
     
     //MARK: Outlets
     
+    //Labels that change
+    @IBOutlet weak var topLabel: UIButton!
+    @IBOutlet weak var placeAddressLabel: UIButton!
+    
+    var platillos: [Dictionary<String, Any>] = []
     let userID = UserDefaults.standard.value(forKey: "UserID") as! String
     var idOrder: String = ""
     var typeOfOrder: String = ""
+    let annotation = MKPointAnnotation()
+    let reuseDocument = "DocumentCellMessages"
+    var comingFrom: String = ""
+    @IBOutlet weak var height: NSLayoutConstraint!
     @IBOutlet weak var menuName: UIButton!
     @IBOutlet weak var offeredBy: UIButton!
     @IBOutlet weak var dishesTableView: UITableView!
@@ -32,12 +41,30 @@ class profileDeliveryDetailViewController: UIViewController {
         customizeMapView()
         getInfo()
         setupView()
+        setupTableview()
     }
     
     //MARK: Funcs
     
+    func setupTableview() {
+        let documentXib = UINib(nibName: "dishesTableViewCell", bundle: nil)
+        dishesTableView!.register(documentXib, forCellReuseIdentifier: reuseDocument)
+        dishesTableView!.delegate = self
+        dishesTableView!.dataSource = self
+        dishesTableView!.separatorStyle = .none
+        dishesTableView!.allowsSelection = false
+        dishesTableView!.isScrollEnabled = false
+    }
+    
     func setupView() {
         markAsButton.layer.cornerRadius = 15
+        if comingFrom == "main" {
+            self.topLabel.setTitle("Detalle De Pedido Disponible", for: .normal)
+            self.placeAddressLabel.setTitle("LUGAR DE ENTREGA", for: .normal)
+        } else {
+            self.topLabel.setTitle("Detalle De Pedido", for: .normal)
+            self.placeAddressLabel.setTitle("DIRECCIÓN DE ESTABLECIMIENTO", for: .normal)
+        }
     }
     
     func buttonHandler(orderType: String) {
@@ -59,22 +86,18 @@ class profileDeliveryDetailViewController: UIViewController {
         self.mapInformation.showsBuildings = true
         self.mapInformation.showsCompass = true
         self.mapInformation.showsPointsOfInterest = true
-        self.mapInformation.showsUserLocation = false
+        self.mapInformation.showsUserLocation = true
         self.mapInformation.userTrackingMode = .none
         self.mapInformation.mapType = .standard
     }
     
-    func showCircle(coordinate: CLLocationCoordinate2D,
-                    radius: CLLocationDistance) {
-        let circle = MKCircle(center: coordinate,
-                              radius: radius)
-        mapInformation.addOverlay(circle)
-    }
-    
-    func centerMapOnLocation(location: CLLocation) {
+    func centerMapOnLocation(location: CLLocation, latitude:Double, longtitude:Double, direccionPedido: String) {
         let regionRadius: CLLocationDistance = 1000
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
         mapInformation.setRegion(coordinateRegion, animated: true)
+        annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+        annotation.title = direccionPedido
+        mapInformation.addAnnotation(annotation)
     }
     
     func getInfo() {
@@ -104,16 +127,19 @@ class profileDeliveryDetailViewController: UIViewController {
                         let latitud = info["latitud"] as? String
                         let longitud = info["longitud"] as? String
                         let initialLocation = CLLocation(latitude: Double(latitud ?? "0.0") ?? 0.0, longitude: Double(longitud ?? "0.0") ?? 0.0)
+                        let DoubleLatitude = Double(latitud ?? "0.0")
+                        let DoubleLongtitude = Double(longitud ?? "0.0")
                         let cantidad = info["cantidad"] as? String
                         let costo = info["sub_total"] as? String
                         let costoEnvio = info["costo_envio"] as? String
                         let estatus = info["estatus"] as? String
+                        let direccionDeEntrega = info["direccion_cocinero_pedido"] as? String
                         self.buttonHandler(orderType: estatus ?? "Empty")
                         DispatchQueue.main.async {
                             self.menuName.setTitle(menuName, for: .normal)
                             self.offeredBy.setTitle( "Ofrecido por: \(anfitrion ?? "")", for: .normal)
                             self.totalInfo.text = total
-                            self.centerMapOnLocation(location: initialLocation)
+                            self.centerMapOnLocation(location: initialLocation, latitude: DoubleLatitude ?? 0.0, longtitude: DoubleLongtitude ?? 0.0, direccionPedido: direccionDeEntrega ?? "")
                             self.quantityInfo.text = cantidad
                             self.costInfo.text = "$ \(costo ?? "")"
                             self.shippingCostInfo.text = "$ \(costoEnvio ?? "")"
@@ -122,9 +148,22 @@ class profileDeliveryDetailViewController: UIViewController {
                     } else {
                         print("Error al actualizar la informacion.")
                     }
+                    
+                    if let extras = pedidos["extras"] as? [Dictionary<String, AnyObject>] {
+                        for d in extras {
+                            print(d)
+                            self.platillos.append(d)
+                        }
+                    }
                 } else {
                     print("error with info")
                     self.buttonHandler(orderType: "Empty")
+                }
+            }
+            DispatchQueue.main.async {
+                if self.platillos.count > 0 {
+                    self.dishesTableView?.reloadData()
+                    self.height.constant = self.dishesTableView.contentSize.height
                 }
             }
         }.resume()
@@ -136,14 +175,38 @@ class profileDeliveryDetailViewController: UIViewController {
     
     @IBAction func changeStatusButton(_ sender: Any) {
         let alert = UIAlertController(title: "Confirmar", message: "¿De verdad quieres aceptar el pedido?", preferredStyle: .alert)
-        
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Option", style: .default, handler: { action in
-            
             self.dismiss(animated: true, completion: nil)
-            
         }))
-        
         self.present(alert, animated: true)
     }
+}
+
+extension profileDeliveryDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        platillos.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseDocument, for: indexPath) as? dishesTableViewCell else {
+            return UITableViewCell()
+        }
+        let document = platillos[indexPath.row]
+        // let id  = document["Id"] as? String ?? ""
+        // let cantidad = document["cantidad"] as? String ?? ""
+        let nombre = document["nombre"] as? String ?? ""
+        let precioUnitario = document["precio_unitario"] as? String ?? ""
+        let total = document["total"] as? String ?? ""
+        let cantidad = document["cantidad"] as? String ?? ""
+        cell.nombrePlatillo.text = "\(cantidad) \(nombre)"
+        cell.precioDePlatillo.text = "$\(precioUnitario) = $\(total)"
+        return cell
+    }
+    
 }
