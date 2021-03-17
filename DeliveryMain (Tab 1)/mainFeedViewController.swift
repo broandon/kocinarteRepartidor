@@ -22,6 +22,8 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable, sho
         super.viewDidLoad()
         setupTableView()
         downloadData()
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(refreshData), name: Notification.Name("orderAccepted"), object: nil)
     }
     
     //MARK: Funcs
@@ -37,6 +39,38 @@ class mainFeedViewController: UIViewController, NVActivityIndicatorViewable, sho
         myViewController.typeOfOrder = typeOfOrder
         myViewController.comingFrom = "main"
         present(myViewController, animated: true, completion: nil)
+    }
+    
+    @objc func refreshData() {
+        startAnimating(type: .ballScaleMultiple, backgroundColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.2990421661))
+        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
+        request.httpMethod = "POST" // Metodo
+        let postString = "funcion=getOrdersAvailable&id_user="+userID!
+        request.httpBody = postString.data(using: .utf8)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil, response != nil else {
+                return
+            }
+            let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+            
+            if let dictionary = json as? Dictionary<String, AnyObject>{
+                print(dictionary)
+                self.pedidos.removeAll()
+                if let pedidos = dictionary["data"] {
+                    for d in pedidos as! [Dictionary<String, AnyObject>] {
+                        self.pedidos.append(d)
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.stopAnimating()
+                if self.pedidos.count > 0 {
+                    self.deliveryTableView.reloadData()
+                }
+            }
+        }.resume()
     }
     
     func downloadData() {

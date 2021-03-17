@@ -34,6 +34,10 @@ class profileDeliveryDetailViewController: UIViewController {
     @IBOutlet weak var totalInfo: UILabel!
     @IBOutlet weak var markAsButton: UIButton!
     
+    // Values to change the order status and update it
+    
+    var idStatus:String = ""
+    
     //MARK: viewDid
     
     override func viewDidLoad() {
@@ -70,8 +74,41 @@ class profileDeliveryDetailViewController: UIViewController {
     func buttonHandler(orderType: String) {
         switch orderType {
         case "2":
-            DispatchQueue.main.async {
-                self.markAsButton.setTitle("Aceptar Pedido", for: .normal)
+            
+            if comingFrom == "main" {
+                DispatchQueue.main.async {
+                    self.markAsButton.setTitle("Aceptar Pedido", for: .normal)
+                }
+            }
+            
+            if comingFrom == "profile" {
+                DispatchQueue.main.async {
+                    self.markAsButton.isHidden = true
+                }
+            }
+        case "3":
+            
+            if comingFrom == "profile" {
+                DispatchQueue.main.async {
+                    self.markAsButton.isHidden = true
+                }
+            }
+        case "4":
+            
+            if comingFrom == "profile" {
+                DispatchQueue.main.async {
+                    self.markAsButton.setTitle("Marcar como recibido", for: .normal)
+                    self.idStatus = "5"
+
+                }
+            }
+        case "5":
+            
+            if comingFrom == "profile" {
+                DispatchQueue.main.async {
+                    self.markAsButton.setTitle("Marcar como entregado", for: .normal)
+                    self.idStatus = "6"
+                }
             }
         default:
             DispatchQueue.main.async {
@@ -169,18 +206,119 @@ class profileDeliveryDetailViewController: UIViewController {
         }.resume()
     }
     
+    //MARK: Buttons
+    
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func changeStatusButton(_ sender: Any) {
-        let alert = UIAlertController(title: "Confirmar", message: "¿De verdad quieres aceptar el pedido?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Option", style: .default, handler: { action in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true)
+        if comingFrom == "main" {
+            let alert = UIAlertController(title: "Confirmar", message: "¿De verdad quieres aceptar el pedido?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+                self.acceptOrder()
+            }))
+            self.present(alert, animated: true)
+        }
+        
+        if comingFrom == "profile" {
+            let alert = UIAlertController(title: "Confirmar", message: "¿De verdad quieres actualizar el estatus de tu pedido?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: { action in
+                self.updateStatus()
+            }))
+         self.present(alert, animated: true)
+        }
     }
+    
+    func acceptOrder() {
+        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let postString = "funcion=acceptOrder&id_user="+userID+"&id_order="+idOrder
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
+            
+            if let parseJSON = json {
+                let userUpdated = parseJSON["state"] as? String
+                
+                if userUpdated == "200" {
+                    DispatchQueue.main.async {
+                        print("Order Accepted")
+                        let nc = NotificationCenter.default
+                        nc.post(name: Notification.Name("orderAccepted"), object: nil)
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func updateStatus() {
+        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let postString = "funcion=updateStatusOrder&id_user="+userID+"&id_order="+idOrder+"&estatus="+idStatus
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
+            
+            if let parseJSON = json {
+                let userUpdated = parseJSON["state"] as? String
+                
+                if userUpdated == "200" {
+                    DispatchQueue.main.async {
+                        print("Order Accepted")
+                        let nc = NotificationCenter.default
+                        nc.post(name: Notification.Name("orderUpdated"), object: nil)
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    
+    @IBAction func acceptAndUpdateOrder(_ sender: Any) {
+        //        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        //        var request = URLRequest(url: url)
+        //        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        //        request.httpMethod = "POST"
+        //        let postString = ""
+        //        request.httpBody = postString.data(using: .utf8)
+        //        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        //            guard let data = data, error == nil else {
+        //                return
+        //            }
+        //            let json = try? JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
+        //
+        //            if let parseJSON = json {
+        //                let userUpdated = parseJSON["state"] as? String
+        //
+        //                if userUpdated == "200" {
+        //                    DispatchQueue.main.async{
+        //                        let alert = UIAlertController(title: "¡Éxito!", message: "¡Se han actualizado tus datos correctamente!", preferredStyle: .alert)
+        //                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        //                        self.present(alert, animated: true)
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        task.resume()
+    }
+    
 }
 
 extension profileDeliveryDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -198,8 +336,6 @@ extension profileDeliveryDetailViewController: UITableViewDelegate, UITableViewD
             return UITableViewCell()
         }
         let document = platillos[indexPath.row]
-        // let id  = document["Id"] as? String ?? ""
-        // let cantidad = document["cantidad"] as? String ?? ""
         let nombre = document["nombre"] as? String ?? ""
         let precioUnitario = document["precio_unitario"] as? String ?? ""
         let total = document["total"] as? String ?? ""

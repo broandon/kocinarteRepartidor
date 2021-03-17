@@ -13,7 +13,6 @@ class settingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     //MARK: Buttons
@@ -31,7 +30,7 @@ class settingsViewController: UIViewController {
     }
     
     @IBAction func openPrivacyButton(_ sender: Any) {
-        if let url = URL(string: "http://bilcom.mx/sazon_casero/privacidad/privacidad.pdf") {
+        if let url = URL(string: "http://kocinaarte.com/aviso/aviso_privacidad_app_repartidor.pdf") {
             UIApplication.shared.open(url)
         }
     }
@@ -43,7 +42,7 @@ class settingsViewController: UIViewController {
     }
     
     @IBAction func termsAndConditionsButton(_ sender: Any) {
-        if let url = URL(string: "http://kocinaarte.com/aviso/aviso_privacidad_app_repartidor.pdf") {
+        if let url = URL(string: "http://kocinaarte.com/terminos/terminos_repartidor.pdf") {
             UIApplication.shared.open(url)
         }
     }

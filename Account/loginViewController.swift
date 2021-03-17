@@ -132,6 +132,18 @@ class loginViewController: UIViewController, NVActivityIndicatorViewable {
         task.resume()
     }
     
+    @IBAction func Crearcuenta(_ sender: Any) {
+        let alert = UIAlertController(title: "Creando cuenta", message: "Iras a nuestro portal para crear tu cuenta. Despues regresa a la app e inicia sesión.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ya tengo cuenta", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Crear cuenta", style: .default, handler: { action in
+            if let url = URL(string: "https://www.kocinaarte.com/administracion/login.php") {
+                UIApplication.shared.open(url)
+            }
+
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func forgotPassword(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "recoverAccountViewController") as! recoverAccountViewController
