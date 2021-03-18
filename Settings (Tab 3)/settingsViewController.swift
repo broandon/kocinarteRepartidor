@@ -47,6 +47,11 @@ class settingsViewController: UIViewController {
         }
     }
     
+    @IBAction func customerSupport(_ sender: Any) {
+        if let url = URL(string: "https://api.whatsapp.com/send?phone=525574890941") {
+            UIApplication.shared.open(url)
+        }
+    }
     
     @IBAction func closeSessionAction(_ sender: Any) {
         let alert = UIAlertController(title: "Cerrar Sesión", message: "¿De verdad quieres cerrar sesión? Tendrás que introducir tu usuario y contraseña nuevamente.", preferredStyle: .alert)

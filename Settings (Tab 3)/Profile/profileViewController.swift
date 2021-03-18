@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 import NVActivityIndicatorView
 
-class profileViewController: UIViewController, NVActivityIndicatorViewable {
+class profileViewController: UIViewController, NVActivityIndicatorViewable, ImagePickerDelegate {
     
     //MARK: Outlets
     
@@ -18,13 +18,17 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var surnameTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
     @IBOutlet weak var saveProfileInfoButton: UIButton!
+    @IBOutlet weak var newPhotoButton: UIButton!
     
     let userID = UserDefaults.standard.value(forKey: "UserID") as! String
+    
+    var imagePicker: ImagePicker!
     
     //MARK: ViewDid
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         setupView()
         downloadData()
     }
@@ -37,6 +41,14 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
         phoneTF.addLine(position: .LINE_POSITION_BOTTOM, color: #colorLiteral(red: 1, green: 0, blue: 0.009361755543, alpha: 1), width: 3)
         profileImage.makeRounded()
         saveProfileInfoButton.layer.cornerRadius = 15
+    }
+    
+    
+    func didSelect(image: UIImage?) {
+        let imgObj = image
+        let imageData = imgObj!.pngData()! as NSData
+        let base64 = imageData.base64EncodedData(options: .lineLength64Characters)
+        print(base64)
     }
     
     func downloadData() {
@@ -79,6 +91,10 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
     
     //MARK: Buttons
     
+    @IBAction func newPhotoButton(_ sender: UIButton) {
+        self.imagePicker.present(from: sender)
+    }
+    
     @IBAction func closeView(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -110,7 +126,7 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
             return
         }
         
-        let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
@@ -128,7 +144,7 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable {
                 return
             }
             let json = try? JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
-            
+            print(json)
             if let parseJSON = json {
                 let userUpdated = parseJSON["state"] as? String
                 

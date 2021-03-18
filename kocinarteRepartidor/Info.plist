@@ -31,6 +31,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Permite el acceso a la camara para poder personalizar tu imagen de perfil con una foto. </string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Permite el acceso a tus fotos para que peudas personalizar tu imagen de perfil con una foto previamente tomada.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
