@@ -39,7 +39,7 @@ class bankDataViewController: UIViewController {
     }
     
     func downloadData() {
-        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: HTTPManager.baseURL())!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
@@ -85,7 +85,7 @@ class bankDataViewController: UIViewController {
     
     @IBAction func saveNewBankData(_ sender: Any) {
         // POST REQUEST
-        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: HTTPManager.baseURL())!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo

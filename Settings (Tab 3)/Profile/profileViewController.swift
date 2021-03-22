@@ -8,6 +8,8 @@
 import UIKit
 import SDWebImage
 import NVActivityIndicatorView
+import Alamofire
+import AlamofireImage
 
 class profileViewController: UIViewController, NVActivityIndicatorViewable, ImagePickerDelegate {
     
@@ -21,7 +23,6 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable, Imag
     @IBOutlet weak var newPhotoButton: UIButton!
     
     let userID = UserDefaults.standard.value(forKey: "UserID") as! String
-    
     var imagePicker: ImagePicker!
     
     //MARK: ViewDid
@@ -43,17 +44,61 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable, Imag
         saveProfileInfoButton.layer.cornerRadius = 15
     }
     
+    func convertToBase64(image: UIImage) -> String {
+        return image.pngData()!
+            .base64EncodedString()
+    }
     
     func didSelect(image: UIImage?) {
-        let imgObj = image
-        let imageData = imgObj!.pngData()! as NSData
-        let base64 = imageData.base64EncodedData(options: .lineLength64Characters)
-        print(base64)
+        let imageString = self.convertToBase64(image: image!)
+        let headers: HTTPHeaders = [
+            "Content-type": "multipart/form-data"
+        ]
+        
+        AF.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append("uploadImage".data(using: String.Encoding.utf8)!, withName: "funcion")
+            multipartFormData.append(imageString.data(using: String.Encoding.utf8)!, withName: "image")
+        }, to: HTTPManager.baseURL(), usingThreshold: UInt64.init(), method: .post, headers: headers).response{ response in
+            if response.error == nil {
+                do {
+                    if let jsonData = response.data {
+                        let parsedData = try JSONSerialization.jsonObject(with: jsonData) as! Dictionary<String, AnyObject>
+                        if let data = parsedData["data"] as? Dictionary<String, String> {
+                            let URLWithImage = data["image_name"]
+                            DispatchQueue.main.async {
+                                self.profileImage.sd_setImage(with: URL(string: URLWithImage!), completed: nil)
+                            }
+                            let paramsRegister = ["funcion" : "updateUser",
+                                                  "id_user" : self.userID,
+                                                  "image" : URLWithImage!,
+                                                  "first_name" : self.nameTF.text!,
+                                                  "last_name" : self.surnameTF.text!,
+                                                  "phone" : self.phoneTF.text!] as [String : Any]
+                            HTTPManager.postRequest(params: paramsRegister) {[weak self] (responseData, errorMessage) -> () in
+                                guard self != nil else { return }
+                                
+                                if (errorMessage?.isEmpty)! {
+                                    if let data = responseData["data"] as? Dictionary<String, Any> {
+                                        
+                                        print(" =========== ")
+                                        print(" data: ", data)
+                                        print(" =========== ")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch {
+                    
+                }
+            }
+        }
     }
     
     func downloadData() {
         startAnimating(type: .ballScaleMultiple, backgroundColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.2990421661))
-        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: HTTPManager.baseURL())!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
@@ -126,7 +171,7 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable, Imag
             return
         }
         
-        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: HTTPManager.baseURL())!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
@@ -144,7 +189,6 @@ class profileViewController: UIViewController, NVActivityIndicatorViewable, Imag
                 return
             }
             let json = try? JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
-            print(json)
             if let parseJSON = json {
                 let userUpdated = parseJSON["state"] as? String
                 

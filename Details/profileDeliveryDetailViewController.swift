@@ -138,7 +138,7 @@ class profileDeliveryDetailViewController: UIViewController {
     }
     
     func getInfo() {
-        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: HTTPManager.baseURL())!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
@@ -233,7 +233,7 @@ class profileDeliveryDetailViewController: UIViewController {
     }
     
     func acceptOrder() {
-        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: HTTPManager.baseURL())!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
@@ -262,7 +262,7 @@ class profileDeliveryDetailViewController: UIViewController {
     }
     
     func updateStatus() {
-        let url = URL(string: "http://kocinaarte.com/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: HTTPManager.baseURL())!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"

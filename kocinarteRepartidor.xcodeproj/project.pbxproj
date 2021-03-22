@@ -19,6 +19,7 @@
 		9D669A65253BAD9500A375A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D669A5F253BAD9400A375A7 /* AppDelegate.swift */; };
 		9D8C0F45253D115C004EBC76 /* pushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C0F44253D115C004EBC76 /* pushNotificationManager.swift */; };
 		9DB264082602EC4500CD1BDA /* imagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB264072602EC4500CD1BDA /* imagePickerHelper.swift */; };
+		9DB5DD082608339B004EA51C /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5DD072608339B004EA51C /* HTTPManager.swift */; };
 		9DDDAD4025D6001A006A11B3 /* profileDeliveryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDDAD3E25D6001A006A11B3 /* profileDeliveryDetailViewController.swift */; };
 		9DDDAD4125D6001A006A11B3 /* profileDeliveryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDDAD3F25D6001A006A11B3 /* profileDeliveryDetailViewController.xib */; };
 		9DDE85B7253BC06E00FDD695 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE85B6253BC06E00FDD695 /* settingsViewController.swift */; };
@@ -54,6 +55,7 @@
 		9D8C0F42253D10B6004EBC76 /* kocinarteRepartidor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kocinarteRepartidor.entitlements; sourceTree = "<group>"; };
 		9D8C0F44253D115C004EBC76 /* pushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pushNotificationManager.swift; sourceTree = "<group>"; };
 		9DB264072602EC4500CD1BDA /* imagePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePickerHelper.swift; sourceTree = "<group>"; };
+		9DB5DD072608339B004EA51C /* HTTPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
 		9DDDAD3E25D6001A006A11B3 /* profileDeliveryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileDeliveryDetailViewController.swift; sourceTree = "<group>"; };
 		9DDDAD3F25D6001A006A11B3 /* profileDeliveryDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = profileDeliveryDetailViewController.xib; sourceTree = "<group>"; };
 		9DDE85B6253BC06E00FDD695 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				9D8C0F44253D115C004EBC76 /* pushNotificationManager.swift */,
 				9D5DBF9225EA2ACD0055AC35 /* webBrowserViewController.swift */,
 				9DB264072602EC4500CD1BDA /* imagePickerHelper.swift */,
+				9DB5DD072608339B004EA51C /* HTTPManager.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				9DE4A472253A523D00ED3CE0 /* Extensions.swift in Sources */,
 				9DF5C24225D4FF98004291B8 /* bankDataViewController.swift in Sources */,
 				9DDE85C7253BD2EC00FDD695 /* messagesViewController.swift in Sources */,
+				9DB5DD082608339B004EA51C /* HTTPManager.swift in Sources */,
 				9DDE85CC253BD40400FDD695 /* messageTableViewCell.swift in Sources */,
 				9DDE85B7253BC06E00FDD695 /* settingsViewController.swift in Sources */,
 			);
@@ -551,7 +555,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kocinarteRepartidor/kocinarteRepartidor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = W4MERUEP35;
 				INFOPLIST_FILE = kocinarteRepartidor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -575,7 +579,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kocinarteRepartidor/kocinarteRepartidor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = W4MERUEP35;
 				INFOPLIST_FILE = kocinarteRepartidor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;

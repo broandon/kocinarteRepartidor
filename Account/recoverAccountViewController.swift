@@ -44,7 +44,7 @@ class recoverAccountViewController: UIViewController, NVActivityIndicatorViewabl
                 return
             }
         } else {
-            let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice_repartidor/controller_last.php")!
+            let url = URL(string: HTTPManager.baseURL())!
             var request = URLRequest(url: url)
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
             request.httpMethod = "POST" // Metodo

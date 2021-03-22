@@ -20,5 +20,7 @@ target 'kocinarteRepartidor' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
 
 end

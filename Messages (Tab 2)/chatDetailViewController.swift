@@ -52,7 +52,7 @@ class chatDetailViewController: UIViewController, NVActivityIndicatorViewable {
     
     func getInfo() {
         startAnimating(type: .ballScaleMultiple, backgroundColor: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.2990421661))
-        let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice_repartidor/controller_last.php")!
+        let url = URL(string: HTTPManager.baseURL())!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
         request.httpMethod = "POST" // Metodo
@@ -97,7 +97,7 @@ class chatDetailViewController: UIViewController, NVActivityIndicatorViewable {
             return
         } else {
             print("Sending Message")
-            let url = URL(string: "http://bilcom.mx/sazon_casero/administracion/webservice_repartidor/controller_last.php")!
+            let url = URL(string: HTTPManager.baseURL())!
             var request = URLRequest(url: url)
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type") // Headers
             request.httpMethod = "POST" // Metodo
